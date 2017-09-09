@@ -1,0 +1,9 @@
+{
+  "name": "TwitterApi",
+  "version": "1.0.0",
+  "description": "A project to experiment with the twitter API.",
+  "main": "index.js",
+  "repository": "https://github.com/rebel-l/twitter-api",
+  "author": "Rebel L",
+  "license": "MIT"
+}

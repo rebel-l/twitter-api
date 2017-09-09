@@ -1,0 +1,17 @@
+{
+  "name": "rebel-l/twitter-api",
+  "description": "A project to experiment with the twitter API.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rebel L",
+      "email": "dj@rebel-l.net",
+      "homepage": "https://github.com/rebel-l",
+      "role": "Engineering Manager"
+    }
+  ],
+  "require-dev": {
+    "rebel-l/sisa": "2.2.*"
+  }
+}

@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
                     'Iptables' => {
                         'TCP' => {
                             'Ports' => [
-                                80
+                                8080
                             ]
                         }
                     }

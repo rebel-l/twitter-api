@@ -5,5 +5,11 @@
   "main": "index.js",
   "repository": "https://github.com/rebel-l/twitter-api",
   "author": "Rebel L",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  },
+  "engines" : {
+    "node" : ">=8.4.0"
+  }
 }

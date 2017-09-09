@@ -1,0 +1,11 @@
+exports.credentials = {
+    'consumerKey': 'xxx',
+    'consumerSecret': 'xxx',
+    'accessToken':'xxx',
+    'accessTokenSecret': 'xxx'
+};
+
+exports.params = {
+    'screen_name': 'meinunterricht',
+    'count': 10
+};

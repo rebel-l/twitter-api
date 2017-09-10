@@ -9,11 +9,11 @@ class Index {
     }
 
     addMultiple(json) {
-        this.client.bulk(this.parseTwitterToBulkBody(json), function (err, resp) {
+        this.client.bulk(this.parseTwitterToBulkBody(json), function (err, response) {
             if(err) {
                 throw "Bulk change was not possible";
             }
-            console.log(resp);
+            console.log(response);
         });
     }
 
@@ -26,7 +26,7 @@ class Index {
             let action = this.indexAction;
             let doc = {};
 
-            action._id = data[i].id;
+            action._id = data[i].id;    // TODO: this id does not avoid duplicates
             body.push(action);
 
             doc.createdAt = data[i].created_at;
@@ -48,12 +48,37 @@ class Index {
         });
     }
 
+    search(queryString) {
+        let query = {
+            "wildcard": {"text": queryString}
+        };
+        let action = this.searchAction;
+        action.body.query = query;
+
+        this.client.search(action, function (err, response, status) {
+            if(err) {
+                console.log(status);
+                throw "Search was not successful";
+            }
+
+            console.log(response.hits.hits);
+        })
+    }
+
     get indexAction() {
         return {
             "index": {
                 "_index": this.index,
                 "_type": this.type
             }
+        };
+    }
+
+    get searchAction() {
+        return {
+            "index": this.index,
+            "type": this.type,
+            "body": {}
         };
     }
 }

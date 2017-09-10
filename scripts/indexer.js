@@ -21,6 +21,7 @@ let success = function (data) {
     let index = new ElasticSearchIndex(Config.ElasticSearch);
     index.ping();
     index.addMultiple(json);
+    index.search('unterricht');
 
     // let esClient = new ElasticSearch.Client(Config.ElasticSearch);
     // esClient.search({

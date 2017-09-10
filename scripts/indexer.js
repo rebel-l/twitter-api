@@ -14,8 +14,8 @@ let success = function (data) {
     let json = JSON.parse(data);
 
     // Persist data in database
-    // let collection = new TweetCollection(Config.MongoDb.url);
-    // collection.addTweets(json);
+    let collection = new TweetCollection(Config.MongoDb.url);
+    collection.addTweets(json);
 
     // Persist data in index
     let index = new ElasticSearchIndex(Config.ElasticSearch);

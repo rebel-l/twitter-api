@@ -1,6 +1,13 @@
 let config = {
+    "ElasticSearch": {
+        "host": "localhost:9200",
+        "log": "trace",
+        "requestTimeout": 1000,
+        "httpAuth": "elastic:changeme",
+        "apiVersion": "5.5"
+    },
     "MongoDb": {
-        "url": 'mongodb://localhost:27018/twitter-api'
+        "url": "mongodb://localhost:27017/twitter-api"
     },
     "Twiiter": {
         "credentials": {

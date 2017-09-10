@@ -46,6 +46,7 @@ Vagrant.configure("2") do |config|
                         'TCP' => {
                             'Ports' => [
                                 8080,
+                                9200,
                                 27018
                             ]
                         }

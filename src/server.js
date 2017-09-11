@@ -2,7 +2,11 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
+const Config = require('./../etc/config');
+const ElasticSearchIndex = require('./ElasticSearch/Index');
 const port = 8080;
+
+let index = new ElasticSearchIndex(Config.ElasticSearch);
 
 http.createServer(function(req, res) {
     // parse URL
@@ -65,19 +69,29 @@ function serveStatic(res, pathname) {
 }
 
 function serveAjax(req, res) {
-    var body = '';
+    let body = '';
     req.on('data', function(data) {
         body += data;
     });
 
     req.on('end', function () {
-        console.log(body);
+        let query = '*' + body.replace('q=', '') + '*';
 
-        res.writeHead(200, {'Content-Type': 'application/json'});
-        res.end(JSON.stringify({
-            "sentence": body
-        }));
+        index.search(query, function (err, response, status) {
+            if(err) {
+                console.log(status);
+                throw "Search was not successful";
+            }
+
+            res.writeHead(200, {'Content-Type': 'application/json'});
+            res.end(JSON.stringify(response.hits));
+        });
     });
 }
 
 console.log("Server started and listening to port: " + port);
+
+
+
+
+

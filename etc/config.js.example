@@ -18,7 +18,7 @@ let config = {
         },
         "params": {
             'screen_name': 'meinunterricht',
-            'count': 10
+            'count': 100
         }
     }
 };

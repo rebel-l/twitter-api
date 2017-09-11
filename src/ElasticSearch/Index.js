@@ -4,7 +4,6 @@ class Index {
     constructor(config) {
         this.index = "twitter";
         this.type = "tweet";
-        // this.config = config;
         this.client = new ElasticSearch.Client(config);
     }
 
@@ -48,21 +47,14 @@ class Index {
         });
     }
 
-    search(queryString) {
+    search(queryString, callback) {
         let query = {
             "wildcard": {"text": queryString}
         };
         let action = this.searchAction;
         action.body.query = query;
 
-        this.client.search(action, function (err, response, status) {
-            if(err) {
-                console.log(status);
-                throw "Search was not successful";
-            }
-
-            console.log(response.hits.hits);
-        })
+        this.client.search(action, callback);
     }
 
     get indexAction() {

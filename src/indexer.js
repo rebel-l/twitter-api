@@ -1,6 +1,5 @@
 const Twitter = require('twitter-node-client').Twitter;
 const Config = require('./../etc/config');
-// let Tweet = require('../src/Twitter/Tweet');
 const TweetCollection = require('./Mongo/TweetCollection');
 const ElasticSearchIndex = require('./ElasticSearch/Index');
 
@@ -21,62 +20,6 @@ let success = function (data) {
     let index = new ElasticSearchIndex(Config.ElasticSearch);
     index.ping();
     index.addMultiple(json);
-    index.search('unterricht');
-
-    // let esClient = new ElasticSearch.Client(Config.ElasticSearch);
-    // esClient.search({
-    //     index: 'movies',
-    //     type: 'movie',
-    //     body: {
-    //         query: {
-    //             match: {
-    //                 body: 'Francis'
-    //             }
-    //         }
-    //     }
-    // });
-    // esClient.index({
-    //     index: 'twitter',
-    //     type: 'tweet',
-    //     id: '1',
-    //     body: {
-    //         title: 'Test 1',
-    //         tags: ['y', 'z'],
-    //         published: true,
-    //     },
-    //     refresh: true
-    // }, function (error, response) {
-    //     console.log(err);
-    // });
-    // esClient.index.()
-    // esClient.create({
-    //     index: 'myindex',
-    //     type: 'mytype',
-    //     id: '1',
-    //     body: {
-    //         title: 'Test 1',
-    //         tags: ['y', 'z'],
-    //         published: true,
-    //     }
-    // }, function (error, response) {
-    //
-    // });
-    // esClient.indices.create({"index": "twitter"}, function(err, response, status){
-    //     if (err) {
-    //         console.log(err);
-    //         throw 'Index could not be created.';
-    //     }
-    //
-    //     console.log('index created', response);
-    // });
-    // esClient.ping(Config.ElasticSearch, function (err) {
-    //     if (err) {
-    //         console.log(err);
-    //         throw'Elasticsearch is not reachable.';
-    //     }
-    //
-    //     console.log('Elasticsearch connection established.\n');
-    // });
 
     console.log('Indexing finished!\n');
 };

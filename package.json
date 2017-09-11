@@ -15,6 +15,9 @@
     "node": ">=8.4.0"
   },
   "scripts": {
-    "start": "docker start twitter-es && docker start twitter-mongo && node ./src/server.js"
+    "start": "docker start twitter-es && docker start twitter-mongo && node ./src/server.js",
+    "stop": "docker stop twitter-es && docker stop twitter-mongo",
+    "destroy": "npm run stop && docker rm twitter-es && docker rm twitter-mongo",
+    "init": "docker run --name twitter-es -it -d -p 9200:9200 -e \"http.host=0.0.0.0\" -e \"transport.host=127.0.0.1\" docker.elastic.co/elasticsearch/elasticsearch:5.5.2 && docker run -it -p 0.0.0.0:27017:27017 --name twitter-mongo -d mongo && npm install && node ./src/indexer.js && node ./src/server.js"
   }
 }

@@ -1,8 +1,8 @@
 const Twitter = require('twitter-node-client').Twitter;
 const Config = require('./../etc/config');
 // let Tweet = require('../src/Twitter/Tweet');
-const TweetCollection = require('../src/Mongo/TweetCollection');
-const ElasticSearchIndex = require('./../src/ElasticSearch/Index');
+const TweetCollection = require('./Mongo/TweetCollection');
+const ElasticSearchIndex = require('./ElasticSearch/Index');
 
 console.log('Initalise Twitter API ...\n');
 

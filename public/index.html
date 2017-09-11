@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Twitter API</title>
+    <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
 </head>
 <body>
     <h1>Search Twitter for #meinunterricht</h1>
-    <form>
-        <input type="text">
-        <input type="submit" value="Suche">
+    <form id="search">
+        <input id="text" type="text">
+        <input id="submit" type="submit" value="Suche">
     </form>
+    <div id="result" />
 </body>
 </html>

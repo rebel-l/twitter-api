@@ -25,7 +25,6 @@ var Renderer = {
         return headline;
     },
     getHit: function(hit) {
-        console.log(hit._source.text);
         var li = document.createElement('li');
         li.innerHTML = hit._source.text + ' (' + hit._source.createdAt + ')';
         return li;
@@ -42,8 +41,6 @@ var Renderer = {
 };
 
 function success(data) {
-    console.log(data.hits[0]);
-
     var resultDom = $('#result')[0];
     resultDom.innerHTML = '';
     resultDom.append(Renderer.getTotal(data.total));

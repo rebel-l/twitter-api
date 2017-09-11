@@ -25,5 +25,5 @@ let success = function (data) {
 };
 
 
-let myTwitter = new Twitter(Config.Twiiter.credentials);
-myTwitter.getUserTimeline(Config.Twiiter.params, error, success);
+let myTwitter = new Twitter(Config.Twiter.credentials);
+myTwitter.getUserTimeline(Config.Twiter.params, error, success);

@@ -9,7 +9,7 @@ let config = {
     "MongoDb": {
         "url": "mongodb://localhost:27017/twitter-api"
     },
-    "Twiiter": {
+    "Twiter": {
         "credentials": {
             'consumerKey': 'xxx',
             'consumerSecret': 'xxx',

@@ -6,7 +6,7 @@ $(document).ready(function () {
           "q": $('#text')[0].value
         };
 
-        $.ajax(ajaxUrl, data, success, 'json');
+        $.post(ajaxUrl, data, success, 'json');
         console.log();
 
         element.preventDefault();

@@ -13,13 +13,13 @@ http.createServer(function(req, res) {
 
     // if path contains 'ajax' handle it as an ajax call
     if(pathname.search('ajax') > 0) {
-        res.writeHead(200, {'Content-Type': 'application/json'});
-        res.end(JSON.stringify({
-            "sentence": "Hello"
-        }));
-        return;
+        serveAjax(req, res);
+    } else {
+        serveStatic(res, pathname);
     }
+}).listen(port);
 
+function serveStatic(res, pathname) {
     // maps file extention to MIME types
     const mimeType = {
         '.ico': 'image/x-icon',
@@ -62,6 +62,22 @@ http.createServer(function(req, res) {
             }
         });
     });
-}).listen(port);
+}
+
+function serveAjax(req, res) {
+    var body = '';
+    req.on('data', function(data) {
+        body += data;
+    });
+
+    req.on('end', function () {
+        console.log(body);
+
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.end(JSON.stringify({
+            "sentence": body
+        }));
+    });
+}
 
 console.log("Server started and listening to port: " + port);

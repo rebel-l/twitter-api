@@ -19,17 +19,14 @@ copy ./etc/config.js.example ./etc/config.js.
 Now you need replace the Twitter credentials marked with _xxx_ by your own credentials.
 ```json
 {
-	...,
 	"Twiter": {
         "credentials": {
-            'consumerKey': 'xxx',
-            'consumerSecret': 'xxx',
-            'accessToken': 'xxx',
-            'accessTokenSecret': 'xxx'
-        },
-        ...
-    },
-    ...
+            "consumerKey": "xxx",
+            "consumerSecret": "xxx",
+            "accessToken": "xxx",
+            "accessTokenSecret": "xxx"
+        }
+    }
 }
 ```
 

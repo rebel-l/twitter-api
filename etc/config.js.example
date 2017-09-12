@@ -11,14 +11,14 @@ let config = {
     },
     "Twiter": {
         "credentials": {
-            'consumerKey': 'xxx',
-            'consumerSecret': 'xxx',
-            'accessToken': 'xxx',
-            'accessTokenSecret': 'xxx'
+            "consumerKey": "xxx",
+            "consumerSecret": "xxx",
+            "accessToken": "xxx",
+            "accessTokenSecret": "xxx"
         },
         "params": {
-            'screen_name': 'meinunterricht',
-            'count': 100
+            "screen_name": "meinunterricht",
+            "count": 100
         }
     }
 };

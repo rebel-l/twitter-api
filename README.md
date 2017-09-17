@@ -6,6 +6,7 @@ This project is to learn more about the Twitter API and indexing the last 100 en
 ## Requirements
 * [Docker](https://www.docker.com/)
 * [Node](https://nodejs.org/) - _I have used version 8.4_
+* [Twitter App](https://apps.twitter.com/)
 * [Yarn](https://yarnpkg.com) (optional)
 
 As I like yarn as paket manager you can just replace _npm_ with _yarn_ in the following documentation.
